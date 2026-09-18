@@ -12,12 +12,6 @@ def main():
     try:
         print(f'🔍 Loading PDF: {args.input}')
         processor = PDFProcessor(args.input)
-        if args.mode in ['all', 'text']:
-            text = processor.extract_text()
-            print(f'📖 Extracted {len(text.splitlines())} lines of text.')
-        if args.mode in ['all', 'tables']:
-            tables = processor.extract_tables()
-            print(f'📊 Extracted {len(tables)} data tables.')
         processor.export_to_json(args.output)
         print('🎉 Processing finished successfully.')
     except Exception as e:
